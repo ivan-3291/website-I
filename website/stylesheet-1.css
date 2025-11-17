@@ -1,0 +1,687 @@
+/* 
+!!
+Uses interpolate-size for animation, may not work properly in some browsers
+css Resize may not work in some browsers
+
+
+use iframes? instead of pages
+
+ */
+
+.pagecontent{
+    width: 100vw;
+    /* height: 100vh; */
+    border: none;
+    scrollbar-width: none;
+}
+
+body{
+    scrollbar-width: none;
+    background-color: #2a2f49;
+    margin: 0;/*allows flex vid player to clip*/
+}
+
+.header{
+    position: sticky;
+    top: 20px;
+
+    height: 60px;
+    color: white;
+    font-size: 21px;
+}
+
+.navbar{
+    position: sticky;
+    top: 20px;
+    z-index: 5;
+
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    background-color: #A2678A;
+    height: max-content;
+    width: 75vw;
+    margin: 0 0 0 5%;
+    overflow: visible;
+
+    interpolate-size: allow-keywords;
+    transition: 0.2s;
+}
+.navbar_item{
+    width: fit-content;
+    height: fit-content;
+    /* & > .navbar_item_aE:focus{could work to test clik
+        background-color: blue;
+    } */
+}
+.navbar_item:hover{
+    & > a > .navbar_item_content{
+        transform: translateY(-8px);
+        background-color:#c98cb1;
+    }
+    & > .navbar_item_dropdown{
+        height: fit-content;
+        /* background-color: wheat; */
+    }
+    & > a > .navbar_item_content > .text_deco{
+        transform: translateY(1.23em) scaleX(1);
+        opacity: 1;
+    }
+    /* & > a > .navbar_item_content > .pressmeindc{
+        width: 30px;
+    } */
+}
+.navbar_item_content{
+    padding: 16px;
+    font-size: 18px;
+    font-family: Tahoma;
+    color: rgb(255, 255, 255);
+    background-color: #A2678A;
+    /* border-radius: 5px; */
+    /* transition: background-color 0.12s, transform 0.12; */
+    transition-duration: 0.12s;
+
+    /* &::before{ ///////works but move textdeco first
+        content: "<H>";
+        display: inline;
+    } */
+}
+.navbar_item_aE{
+    text-decoration: none;
+}
+.text_deco{
+    transform: translateY(1.23em) scaleX(0);
+    height:2px;
+    width: 110%;
+    margin-left: -5%;
+    background-color: white;
+    opacity: 0;
+    transition: transform 0.2s, opacity 0.2s;
+}
+/* .pressmeindc{
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    transition-duration: 0.2s;
+} */
+.navbar_item_dropdown{
+    font-size: 16px;
+    font-family: Tahoma;
+    width: fit-content;
+    min-width: 120px;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    transform: translateY(8px);
+    z-index: 1;
+    /* background-color: lightgray; */
+    background-color: wheat;
+
+    interpolate-size: allow-keywords;
+    transition-duration: 0.3s;
+}
+.dropdown_items{
+    padding: 6px;
+    color: black;
+    background-color: wheat;
+    transition: transform 0.3s;
+
+    &:hover{
+        background-color: cornsilk;
+        transform: translateX(10px);
+    }
+}
+.dropdown_itemsLink{
+    text-decoration: none;
+}
+#navbartoggle2{
+    appearance: none;
+    box-sizing: content-box;
+    position: fixed;
+    top: 60px; left:10px;
+    width: 20px; height: 45px;
+    border-radius: 5px;
+    z-index: 1;
+
+    background-color: #A2678A;
+    
+    transform: translateX(-24px);
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    &:checked{
+        background-color: #6b4a5e;
+        & + div{
+            height: 0;
+            opacity: 0;
+            transform: translateX(-110%);
+        }
+    }
+    &:hover{
+        transform: translate(-20px);
+        opacity: 1;
+    }
+    /* background-color: #A2678A;<br/>    transform: translateX(-24px);<br/>    opacity: 0.5;<br/>    transition-duration: 0.2s;<br/>    &:checked{<br/>        transform: translateX(-18px);<br/>        & + div{<br/>            height: 0;<br/>            opacity: 0;<br/>            transform: translateX(-110%);<br/>        }<br/>    }<br/>    &:hover{<br/>        opacity: 1;<br/>    } */
+
+    /* background-color: #A2678A;<br/>    width: 10px;<br/>    transform: translateX(12px);<br/>    opacity: 0.5;<br/>    transition-duration: 0.2s;<br/>    &:checked{<br/>        background-color: #6b4a5e;<br/>        transform: translateX(-16px);<br/>        & + div{<br/>            height: 0;<br/>            opacity: 0;<br/>            transform: translateX(-110%);<br/>        }<br/>    }<br/>    &:hover{<br/>        opacity: 1;<br/>    } */
+}
+
+@media screen and (max-width: 480px) {
+    .header{
+        font-size: 30px;
+    }
+    .navbar{
+        width: 100%;
+        margin: 0 0 0 10%;
+    }
+    .navbar_item_content{
+        font-size: 26px;
+    }
+    .text_deco{
+        height:3px;
+    } 
+    .dropdown_items{
+        font-size: 22px;
+    }
+}
+
+/*===========================*/
+
+.page_content_text{
+    max-width: 650px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+.heading1{
+    color: white;
+    font-family: Tahoma;
+    font-size: 45px;
+
+    padding: 12px;
+    text-align: center;
+}
+.heading2{
+    color: white;
+    font-family: Tahoma;
+    font-size: 26px;
+
+    padding: 2px 2px 7px 5px;
+}
+.prgraph{
+    color: white;
+    font-family: Tahoma;
+    font-size: 17px;
+    line-height: 40px;
+}
+@media screen and (max-width: 480px) {
+    .heading{
+        font-size: 48px;
+    }
+    .heading2{
+        color: white;
+        font-family: Tahoma;
+        font-size: 35px;
+
+        padding: 2px 2px 7px 5px;
+    }
+    .prgraph{
+        padding: 0 10px 0 10px;
+        font-size: 21px;
+    }
+}
+
+/*===========#181d36================*/
+:root{
+    --descColor: rgb(202, 202, 202);
+}
+
+.page_content_media{
+    max-width: 924px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.mlist_orgnsr{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:start;
+}
+
+.musiclist{
+    width: fit-content;
+    min-width: 230px;
+    height: fit-content;
+    padding: 8px;
+
+    background-color: rgb(34, 34, 34);
+}
+.musiclist_title{
+    font-family: Tahoma;
+    color: white;
+    font-size: 24px;
+
+    margin: 6px;
+    margin-bottom: 12px;
+
+    &:hover{
+        opacity: 0.88;
+    }
+}
+.musiclist_atitle{
+    text-decoration: none;
+}
+.musiclist_desc{
+    font-family: Tahoma;
+    color: var(--descColor);
+    font-size: 14px;
+
+    width: min-content;
+    min-width: 100%;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+.musiclist_poster{
+    background-color: #181d36;
+
+    margin: 3px;
+    padding: 7px;
+
+    border-top: rgb(87, 77, 77) solid 2px;
+    border-left: rgb(87, 77, 77) solid 2px;
+    border-bottom-right-radius: 30px;
+}
+.musiclist_poster_desc{
+    font-family: Tahoma;
+    color: var(--descColor);
+    font-size: 14px;
+    
+    margin: 5px;
+    padding-bottom: 4px;
+
+    border-bottom: #383d49 solid 3px;
+    
+    &:hover > .mlistexpander{
+        visibility: visible;
+    }
+}
+.musiclist_poster_content{
+    height: fit-content;
+    overflow: hidden;
+    interpolate-size: allow-keywords;
+    transition-duration: 0.3s;
+}
+
+.music_artist_profilepic{
+    border-radius: 50%;
+}
+
+.musiclist_item_cont{
+    height: 40px;
+    padding: 0 9px 5px 0;
+    margin: 0 0 10px 0;
+}
+.musiclist_item{
+    height: 40px;
+    padding: 5px 9px 5px 9px;
+    margin: 0 0 5px 0;
+
+    transition-duration: 0.1s;
+
+    &:hover > .music_title{
+        opacity: 0.88;
+    }
+}
+.musiclist_aitem{
+    text-decoration: none;
+    &:active > .musiclist_item{
+        background-color: rgb(55, 55, 55);
+    }
+}
+.music_title{
+    font-family: Tahoma;
+    color: white;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+.music_undertitle{
+    position: relative;
+    bottom:27px;
+    width: fit-content;
+
+    font-family: Tahoma;
+    color: rgb(181, 181, 181);
+    font-size: 15px;
+
+
+    padding-left: 9px;
+    /* &:hover{
+        opacity: 0.85;
+    } */
+}
+.musiclist_authlnk{
+    text-decoration: none;
+    color: rgb(181, 181, 181);
+}
+.music_desc{
+    font-family: Tahoma;
+    color: var(--descColor);
+    font-size: 13px;
+
+    width: min-content;
+    min-width: 100%;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+.mlistexpander{
+    appearance: none;
+    position: relative;
+    width: 15px; height: 20px;
+    padding: 0 6px 0 6px;
+    transform: translateY(-2px);
+    z-index: 3;
+
+    visibility: hidden;
+    transition-duration: 0.3s;
+    &::before{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow';
+        font-size: 15px;
+        color: white;
+        content: "\\/";
+    }
+    &:checked{
+        transform: rotateX(180deg);
+    }
+    &:active::before{
+        color: rgb(209, 209, 209);
+    }
+}
+.musiclist_poster:has(.musiclist_poster_desc > .mlistexpander:checked){
+    & > .musiclist_poster_content{
+        height: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .mlist_orgnsr{
+        width:100%
+    }
+}
+/*===========================================*/
+/*
+How this works:
+
+*/
+.playercomposite{
+    transform: translateY(-1000px);
+
+    /*Flex*/
+    /* top: 0; left: 0; */
+
+    /*rige*/
+    /* any tlbr combo*/
+
+    position: fixed;
+    overflow: visible;
+    z-index: 2;
+
+    transition-duration: 0.3s;
+}
+
+.posadjuster{
+    /*rige*/
+    display: none;
+
+    transform: translateY(995px) translateX(-25px);
+
+    resize: both;
+    overflow: hidden;
+    pointer-events: none;
+
+    position: relative;
+    min-width: 50px;
+    max-width: 100vw;
+    max-height: 100vh;
+    z-index: 3;
+
+    visibility: hidden;
+}
+
+.playerconglomerate{
+    /*flex*/
+    /* bottom: 30px; right: 0; */
+
+    /*rige*/
+
+    transform: translateY(1000px);
+    min-height: 100px;
+    min-width: 100px;
+    position: relative;
+    float: right;
+    
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+
+    resize: both;
+    overflow: hidden;
+
+    &:hover{
+        & > .ar_toggle{visibility: visible;}
+        & > .rige_toggle{visibility: visible;}
+        & > .position_togglecont{visibility: visible;}
+        & > .modpos_toggle{visibility: visible;}
+        & > .posmode_toggle{visibility: visible;}
+    }
+}
+.media_player{
+    height:100%;
+    aspect-ratio: 1/1;
+
+    pointer-events: auto;
+}
+.ar_toggle{
+    appearance: none;
+    position: absolute;
+    top: 0; right: 0; padding: 2px;
+    width: 24px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "<>";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "><";
+        }
+        & ~ .media_player{
+            aspect-ratio: 16/9;
+        }
+    }
+}
+.rige_toggle{
+    appearance: none;
+    position: absolute;
+    top: 0; left: 0; padding: 2px;
+    width: 20px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "( )";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "[ ]";
+        }
+    }
+}
+.playerconglomerate:has(> .rige_toggle:checked){
+    width: max-content !important;
+}
+.modpos_toggle{
+    appearance: none;
+    position: absolute;
+    bottom: 10px; right: 10px; padding: 2px;
+    width: 20px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "X";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "M";
+        }
+        & ~ #PlayerflexCursorBlocker{
+            display: block;
+        }
+    }
+}
+.posadjuster:has(+ .playerconglomerate > .modpos_toggle:checked){
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-image: radial-gradient(at 100% 100%, white 0%, rgba(255, 255, 255, 0) 30%) 2;
+    pointer-events: auto;
+    visibility: visible;
+}
+.playerconglomerate:has(.modpos_toggle:checked){
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.367);
+}
+
+.position_togglecont{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 24px; height: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &:hover{
+        opacity: 1;
+    }
+}
+.positional_toggle{
+    appearance: none;
+    box-sizing: border-box;
+    width: 10px; height: 10px; margin: 1px;
+    background-color: rgba(162, 162, 162, 0.8);
+    z-index: 2;
+
+    &:checked{background-color: rgb(138, 206, 206);}
+
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .postl:checked){
+    top: 0; left: 0;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .postr:checked){
+    top: 0; right: 0;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .posbl:checked){
+    bottom: 0; left: 0; top: auto;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .posbr:checked){
+    bottom: 0; right: 0; top: auto;
+}
+
+#PlayerflexCursorBlocker{
+    display: none;
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: white;
+    opacity: 0.3;
+}
+.posmode_toggle{
+    appearance: none;
+    position: absolute;
+    bottom: 30px; left: 2px; padding: 2px;
+    width: 30px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "Rige";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "Flex";
+        }
+    }
+}
+.playercomposite:has(.playerconglomerate > .posmode_toggle:checked){
+    background-color: #A2678A;
+    top: 0 !important; bottom: 0 !important; right: auto !important; left: auto !important; /*cancels out higher specificity position_toggle*/
+}
+.posadjuster:has(+ .playerconglomerate > .posmode_toggle:checked){
+    display: block;
+}
+.playerconglomerate:has(.posmode_toggle:checked){
+    background-color: #36637a;
+    bottom: 30px; right: 0;
+}
+ /*To do: make hide player option, hide scale option, compact all toggles css, in flexmove mode chnage opacity to indicate*/
+
+#playerviztoggle{
+    appearance: none;
+    box-sizing: content-box;
+    position: fixed;
+    bottom: 40px; left:10px;
+    width: 20px; height: 45px;
+    border-radius: 5px;
+    z-index: 1;
+
+    background-color: #4694ba;
+    
+    transform: translateX(-24px);
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    &:checked{
+        background-color: #36637a;
+        & + .playercomposite{
+            /* height: 0; */
+            opacity: 0;
+            transform: translateX(-110vw) translateY(-1000px);
+        }
+    }
+    &:hover{
+        transform: translate(-20px);
+        opacity: 1;
+    }
+}
