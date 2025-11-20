@@ -1,0 +1,1339 @@
+/* 
+!!
+Uses interpolate-size for animation, may not work properly in some browsers
+css Resize may not work in some browsers
+
+
+use iframes? instead of pages
+
+ */
+
+.pagecontent{
+    width: 100vw;
+    /* height: 100vh; */
+    border: none;
+    scrollbar-width: none;
+}
+
+body{
+    scrollbar-width: none;
+    background-color: #2a2f49;
+    margin: 0;/*allows flex vid player to clip*/
+}
+
+.header{
+    position: sticky;
+    top: 20px;
+
+    height: 60px;
+    color: white;
+    font-size: 21px;
+}
+
+.navbar{
+    position: sticky;
+    top: 20px;
+    z-index: 5;
+
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    background-color: #A2678A;
+    height: max-content;
+    width: 75vw;
+    margin: 0 0 0 5%;
+    overflow: visible;
+
+    interpolate-size: allow-keywords;
+    transition: 0.2s;
+}
+.navbar_item{
+    width: fit-content;
+    height: fit-content;
+    /* & > .navbar_item_aE:focus{could work to test clik
+        background-color: blue;
+    } */
+}
+.navbar_item:hover{
+    & > a > .navbar_item_content{
+        transform: translateY(-8px);
+        background-color:#c98cb1;
+    }
+    & > .navbar_item_dropdown{
+        height: fit-content;
+        /* background-color: wheat; */
+    }
+    & > a > .navbar_item_content > .text_deco{
+        transform: translateY(1.23em) scaleX(1);
+        opacity: 1;
+    }
+    /* & > a > .navbar_item_content > .pressmeindc{
+        width: 30px;
+    } */
+}
+.navbar_item_content{
+    padding: 16px;
+    font-size: 18px;
+    font-family: Tahoma;
+    color: rgb(255, 255, 255);
+    background-color: #A2678A;
+    /* border-radius: 5px; */
+    /* transition: background-color 0.12s, transform 0.12; */
+    transition-duration: 0.12s;
+
+    /* &::before{ ///////works but move textdeco first
+        content: "<H>";
+        display: inline;
+    } */
+}
+.navbar_item_aE{
+    text-decoration: none;
+}
+.text_deco{
+    transform: translateY(1.23em) scaleX(0);
+    height:2px;
+    width: 110%;
+    margin-left: -5%;
+    background-color: white;
+    opacity: 0;
+    transition: transform 0.2s, opacity 0.2s;
+}
+/* .pressmeindc{
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    transition-duration: 0.2s;
+} */
+.navbar_item_dropdown{
+    font-size: 16px;
+    font-family: Tahoma;
+    width: fit-content;
+    min-width: 120px;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    transform: translateY(8px);
+    z-index: 1;
+    /* background-color: lightgray; */
+    background-color: wheat;
+
+    interpolate-size: allow-keywords;
+    transition-duration: 0.3s;
+}
+.dropdown_items{
+    padding: 6px;
+    color: black;
+    background-color: wheat;
+    transition: transform 0.3s;
+
+    &:hover{
+        background-color: cornsilk;
+        transform: translateX(10px);
+    }
+}
+.dropdown_itemsLink{
+    text-decoration: none;
+}
+#navbartoggle2{
+    appearance: none;
+    box-sizing: content-box;
+    position: fixed;
+    top: 60px; left:10px;
+    width: 20px; height: 45px;
+    border-radius: 5px;
+    z-index: 10;
+
+    background-color: #A2678A;
+    
+    transform: translateX(-24px);
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    &:checked{
+        background-color: #6b4a5e;
+        & + div{
+            height: 0;
+            opacity: 0;
+            transform: translateX(-110%);
+        }
+    }
+    &:hover{
+        transform: translate(-20px);
+        opacity: 1;
+    }
+    /* background-color: #A2678A;<br/>    transform: translateX(-24px);<br/>    opacity: 0.5;<br/>    transition-duration: 0.2s;<br/>    &:checked{<br/>        transform: translateX(-18px);<br/>        & + div{<br/>            height: 0;<br/>            opacity: 0;<br/>            transform: translateX(-110%);<br/>        }<br/>    }<br/>    &:hover{<br/>        opacity: 1;<br/>    } */
+
+    /* background-color: #A2678A;<br/>    width: 10px;<br/>    transform: translateX(12px);<br/>    opacity: 0.5;<br/>    transition-duration: 0.2s;<br/>    &:checked{<br/>        background-color: #6b4a5e;<br/>        transform: translateX(-16px);<br/>        & + div{<br/>            height: 0;<br/>            opacity: 0;<br/>            transform: translateX(-110%);<br/>        }<br/>    }<br/>    &:hover{<br/>        opacity: 1;<br/>    } */
+}
+
+@media screen and (max-width: 480px) {
+    .header{
+        font-size: 30px;
+    }
+    .navbar{
+        width: 100%;
+        margin: 0 0 0 10%;
+    }
+    .navbar_item_content{
+        font-size: 26px;
+    }
+    .text_deco{
+        height:3px;
+    } 
+    .dropdown_items{
+        font-size: 22px;
+    }
+}
+
+/*===========================*/
+
+.page_content_text{
+    max-width: 650px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+.heading1{
+    color: white;
+    font-family: Tahoma;
+    font-size: 45px;
+
+    padding: 12px;
+    text-align: center;
+}
+.heading2{
+    color: white;
+    font-family: Tahoma;
+    font-size: 26px;
+
+    padding: 2px 2px 7px 5px;
+}
+.prgraph{
+    color: white;
+    font-family: Tahoma;
+    font-size: 17px;
+    line-height: 40px;
+}
+@media screen and (max-width: 480px) {
+    .heading{
+        font-size: 48px;
+    }
+    .heading2{
+        color: white;
+        font-family: Tahoma;
+        font-size: 35px;
+
+        padding: 2px 2px 7px 5px;
+    }
+    .prgraph{
+        padding: 0 10px 0 10px;
+        font-size: 21px;
+    }
+}
+
+#musicmap{
+    white-space: pre;
+
+    color: white;
+    font-family: Tahoma;
+    font-size: 17px;
+
+    padding: 15px;
+
+    background-color: #283d47;
+}
+.nextpage{
+    font-family: Tahoma;
+    color:aquamarine;
+    text-decoration: none;
+    &:hover{
+        color: rgb(201, 229, 219);
+    }
+}
+
+.footer{
+    height: 70px
+}
+
+/*===========#181d36================*/
+:root{
+    --descColor: rgb(226, 225, 225);
+}
+
+.page_content_media{
+    max-width: 924px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+.mlist_orgnsr{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:start;
+    margin:auto;
+    flex-wrap: wrap;
+}
+
+.musiclist{
+    width: fit-content;
+    min-width: 230px;
+    height: fit-content;
+    padding: 5px;
+    margin:10px;
+
+    background-color: rgb(34, 34, 34);
+}
+.musiclist_title{
+    padding: 8px;
+    margin-bottom: 5px;
+    &:hover > .musiclist_settings > .musiclist_settings_icon{
+        opacity: 1;
+    }
+}
+.musiclist_atitle{
+    text-decoration: none;
+    font-family: Tahoma;
+    color: white;
+    font-size: 24px;
+    &:hover{
+        opacity: 0.88;
+    }
+}
+.musiclist_desc{
+    font-family: Tahoma;
+    color: var(--descColor);
+    font-size: 14px;
+
+    width: min-content;
+    min-width: 100%;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+.musiclist_section{
+
+}
+.musiclist_lilgreytag{
+    text-decoration: none;
+    padding-left: 5px;
+    color: rgb(147, 147, 147);
+    &:hover > .msubsc_expander{
+        opacity: 1;
+    }
+}
+.musiclist_lilgreytaga{
+    text-decoration: none;
+    color: rgb(147, 147, 147);
+    font-family: Tahoma;
+    font-size: 13px;
+    &:hover{
+        color: rgb(154, 154, 154);
+    }
+}
+.msubsc_expander{
+    appearance: none;
+    position: relative;
+    align-self: end;
+    width: 13px;
+    padding: 0 6px 0 6px;
+    transform: translateY(-2px);
+    z-index: 3;
+
+    opacity: 0;
+    transition-duration: 0.3s;
+    &::before{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow';
+        font-size: 12px;
+        color: white;
+        content: "\\/";
+    }
+    &:checked{
+        transform: translateY(-2px) rotateX(180deg);
+    }
+    &:active::before{
+        color: rgb(209, 209, 209);
+    }
+}
+.musiclist_section:has(.musiclist_lilgreytag > .msubsc_expander:checked){
+    & > .musiclist_content{
+        height: 0;
+        overflow: hidden;
+    }
+}
+.musiclist_content{
+    padding-left: 4px;
+    height: fit-content;
+    overflow: visible;
+    interpolate-size: allow-keywords;
+    transition-duration: 0.2s;
+}
+.musiclist_group{
+    padding-left: 4px;
+}
+
+.musiclist_item_cont{
+    height: fit-content;
+    padding: 0 9px 5px 0;
+    margin: 0 0 -28px 0;
+}
+.musiclist_item{
+    max-height: 40px;
+    height: fit-content;
+    padding: 5px 9px 28px 2px;
+    margin: 0 0 5px 0;
+
+    transition-duration: 0.1s;
+
+    &:hover > .music_title{
+        opacity: 0.88;
+    }
+}
+.musiclist_aitem{
+    text-decoration: none;
+    &:active > .musiclist_item{
+        background-color: rgb(55, 55, 55);
+    }
+}
+.music_title{
+    max-height: 41px;
+    font-family: Tahoma;
+    color: white;
+    font-size: 17px;
+
+    overflow: scroll;
+    scrollbar-width: none;
+}
+.music_undertitle{
+    position: relative;
+    bottom: 29px;
+    width: fit-content;
+    max-height: 20px;
+
+    font-family: Tahoma;
+    color: rgb(181, 181, 181);
+    font-size: 15px;
+
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-left: 2px;
+    /* &:hover{
+        opacity: 0.85;
+    } */
+}
+.musiclist_authlnk{
+    text-decoration: none;
+    color: rgb(181, 181, 181);
+}
+.music_desc{
+    font-family: Tahoma;
+    color: var(--descColor);
+    font-size: 13px;
+
+    width: min-content;
+    min-width: 100%;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+/*Music comments*/
+.pressdetector{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 3;
+    display: block;
+    width: 20px;
+    height: 40px;
+    background-color: rgba(245, 245, 220, 0);
+    border-radius: 8px 0 0 8px;
+    border-left: 2px solid rgba(255, 255, 255, 0);
+    border-bottom: 0;
+    border-top: 0;
+    border-right: 0;
+
+    transition-duration: 0.3s;
+    &::after{
+        content: "<";
+        display: inline-block;
+        color: white;
+        font-family:'fangsong', Tahoma;
+        font-size: 36px;
+        /* transition: opacity 0.15s 0s, transform 0.15s; */
+        transition-duration: 0.15s;
+    }
+    &:hover{
+        &::after{transform: translateX(-7px);}
+    }
+    &:focus{
+        &::after{opacity: 0;}
+        transform: scaleX(-1);
+        border-color: rgb(255, 255, 255);
+        height: calc(100% - 12px);
+        z-index: 4;
+    }
+}
+.comt{
+    position: absolute;
+    right: 106%;
+    opacity: 1;
+
+    max-width: 120px;
+
+    width:240px; height: 0;
+
+    overflow: visible;
+
+    border: solid 0px rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    background-color: #21263b00;
+    padding: 0;
+
+    /* transition-property: All, padding;
+    transition-duration: 0.3s, 0s; */
+    transition-duration: 0.3s, 0.3s;
+}
+.comttext{
+    position: relative;
+    visibility: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
+
+    color: white;
+    font-family: Tahoma;
+    font-size: 12px;
+}
+.commentlink{
+    color: aqua;
+    &:active{
+        color: aquamarine;
+    }
+    &:visited{
+        color:rgb(176, 84, 215);
+    }
+}
+.comt:has(.pressdetector:focus){
+    height: fit-content;
+    background-color: #21263bd9;
+    padding: 10px;
+    border: solid 1px rgb(184, 184, 184);
+    & > .comttext{visibility: visible;}
+}
+.music_comment:has(.comt > .pressdetector:focus){z-index: 4;}
+.music_comment:has(.comt:focus){z-index: 4;}
+.comt:focus, .comt:focus-within{
+    & > .pressdetector{
+        &::after{opacity: 0;}
+        transform: scaleX(-1);
+        border-color: rgb(255, 255, 255);
+        height: calc(100% - 12px);
+    }
+    height: fit-content;
+    background-color: #21263bd9;
+    padding: 10px;
+    border: solid 1px rgb(184, 184, 184);
+    & > .comttext{visibility: visible;}
+}
+.music_comment{
+    position: relative;
+    width: 100%;
+    transform: translateY(-80px);
+    z-index: 2;
+}
+.musiclist:hover >.musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment{
+    opacity: 1;
+}
+.musiclist_item_cont:hover > .music_comment{
+    opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+    .mlist_orgnsr{
+        width:100vw;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width:1150px) {
+    .c3il > .comt{max-width: calc(105.7px + (100vw - 1150px)/130px * 62px);}
+}
+@media screen and (max-width: 1150px){
+    .c3il > .comt{max-width: 200px;}
+}
+.c3im > .comt{max-width: 200px;}
+.c3ir > .comt{max-width: 200px;}
+
+@media screen and (min-width: 853px){
+    .c2il > .comt{max-width: calc(121px + (100vw - 975px) / 305px * 121px);}
+}
+@media screen and (max-width: 853px){
+    .c2il > .comt{max-width: 200px;}
+}
+.c2ir > .comt{max-width: 200px;}
+
+.c1lnr > .comt{max-width: calc(120px + (100vw - 575px) / 270px * 120px);}
+
+@media screen and (max-width: 575px){
+.c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{
+        & > .comt{max-width: calc(169px + (100vw - 574px) / 74px * 60px);}
+    }
+}
+/*max-width: calc(105.7px + (100vw - 1150px) / 130px * 62px); /*3c li ls*/
+/*max-width: calc(120px + (100vw - 575px) / 270px * 120px);/*3c rid1 ls*/
+/*max-width: calc(121px + (100vw - 975px) / 305px * 121px);/*2c li ls*/
+/*max-width: calc(169px + (100vw - 574px) / 74px * 60px)/*3/2/1c i rs*/
+
+@media screen and (max-width: 1150px){
+    .c3il{
+        & > .comt{
+            left: 215px;
+            & > .pressdetector{
+                top: 6px;
+                right: auto; left: -14px;
+                border-radius: 0 8px 8px 0;
+                border-left: 0px;
+                border-right: 2px solid rgba(255, 255, 255, 0);
+                transform-origin: right;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px
+                }
+                &:hover{
+                    &::after{transform: translateX(7px);}
+                }
+                &:focus{
+                    border-color: rgb(255, 255, 255);/*redefined borders need to be recolored*/
+                }
+            }
+            & > .comttext{
+                left:6px;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 0 8px 8px 0;
+                    border-left: 0px;
+                    border-right: 2px solid rgb(255, 255, 255);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 855px){
+    .c2il{
+        & > .comt{
+            left: 215px;
+            & > .pressdetector{
+                top: 6px;
+                right: auto; left: -14px;
+                border-radius: 0 8px 8px 0;
+                border-left: 0px;
+                border-right: 2px solid rgba(255, 255, 255, 0);
+                transform-origin: right;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px
+                }
+                &:hover{
+                    &::after{transform: translateX(7px);}
+                }
+                &:focus{
+                    border-color: rgb(255, 255, 255);
+                }
+            }
+            & > .comttext{
+                left:6px;
+            }
+            &:focus{
+                & > .pressdetector{
+                    /*border: solid 1px rgb(184, 184, 184);*/
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                }
+            }
+        }
+    }
+    .c3ir > .comt{max-width: calc(120px + (100vw - 575px) / 270px * 120px);}
+}
+@media screen and (max-width: 575px){
+    .c3im, .c3ir, .c2ir, .c1lnr{
+        & > .comt{
+            left: 215px;
+            & > .pressdetector{
+                top: 6px;
+                right: auto; left: -14px;
+                border-radius: 0 8px 8px 0;
+                border-left: 0px;
+                border-right: 2px solid rgba(255, 255, 255, 0);
+                transform-origin: right;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px
+                }
+                &:hover{
+                    &::after{transform: translateX(7px);}
+                }
+                &:focus{
+                    border-color: rgb(255, 255, 255);
+                }
+            }
+            & > .comttext{
+                left:6px;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 501px){
+    .c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{/*downcomt*/
+        & > .comt{
+            top: 55px;
+            left: 0;
+            width: 92%;
+            max-width: none;
+            & > .pressdetector{
+                top: -48px;
+                right: auto; left: 200px;
+                border-radius: 8px 0 0 8px;
+                border-left: 2px solid rgba(255, 255, 255, 0);
+                border-right: 0px;
+                transform-origin: center;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px;
+                    transform: rotate(90deg);
+                }
+                &:hover{
+                    &::after{transform: translateY(4px) rotate(90deg);}
+                }
+                &:focus{
+                    top: 6px;
+                    right: 6px; left: auto;
+                    border-color: rgb(255, 255, 255);
+                    height: calc(100% - 12px);
+                }
+            }
+            & > .comttext{
+                width: 96%;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                    top: 6px;
+                    right: 6px; left: auto;
+                }
+            }
+        }
+    }
+}
+
+.musiclist_settings{
+    position: relative;
+    left: 200px;
+    top: -20px;
+    height: 0;
+    z-index: 5;
+}
+.musiclist_settings_icon{
+    appearance: none;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    &::after{
+        content: "...";
+        color: rgb(96, 96, 96);
+        font-family: Tahoma;
+        font-size: 20px;
+        position: relative;
+        bottom: 7px;
+    }
+    &:hover{
+        &::after{color: rgb(179, 179, 179);}
+    }
+}
+.musiclist_settings_label{
+    color: white;
+}
+.musiclist_settings_dropdowns{
+    display: none;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    right: 110px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #2a2f49;
+}
+.musiclist_settings:has(.musiclist_settings_icon:checked){
+    & > .musiclist_settings_dropdowns{
+        display: block;
+    }
+}
+
+/*Comment settings*/
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_allcomsviz:checked){
+    /*commentopencss*/
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment > .comt{
+        & > .pressdetector{
+            &::after{opacity: 0;}
+            transform: scaleX(-1);
+            border-radius: 8px 0 0 8px;
+            border-left: 2px solid rgb(255, 255, 255);
+            border-right: 0px;
+            height: calc(100% - 12px);
+        }
+        height: fit-content;
+        background-color: #21263bd9;
+        padding: 10px;
+        border: solid 1px rgb(184, 184, 184);
+        & > .comttext{visibility: visible;}
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_allcomsindcviz:checked){
+    
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_comsindcvosh:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment > .comt{
+        & > .pressdetector{
+            opacity: 0;
+            transition: opacity 0.3s 0.1s;
+            &:hover{opacity: 1;}
+            &:focus{opacity: 1;}
+        }
+        &:focus > .pressdetector{opacity: 1;}
+    }
+    &:hover >.musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment > .comt{
+        & > .pressdetector{
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_comsindcvoih:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment > .comt{
+        & > .pressdetector{
+            opacity: 0;
+            transition: opacity 0.3s 0.1s;
+            &:hover{opacity: 1;}
+            &:focus{opacity: 1;}
+        }    
+         &:focus > .pressdetector{opacity: 1;}
+    }
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont:hover{
+         & > .music_comment > .comt > .pressdetector{
+            opacity: 1;
+            transition: opacity 0s;
+        }
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_comsvoih:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont:hover{
+        & > .music_comment > .comt{
+            & > .pressdetector{
+                &::after{opacity: 0;}
+                transform: scaleX(-1);
+                border-color: rgb(255, 255, 255);
+                height: calc(100% - 12px);
+            }
+            height: fit-content;
+            background-color: #21263bd9;
+            padding: 10px;
+            border: solid 1px rgb(184, 184, 184);
+            & > .comttext{visibility: visible;}
+        }    
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cviz > .stts_comsvoihwi:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .music_comment > .comt{
+        & > .pressdetector{
+            &::after{content: "";}
+        }
+    }
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont:hover{
+        & > .music_comment > .comt{
+            & > .pressdetector{
+                opacity: 1;
+                &::after{opacity: 0;}
+                transform: scaleX(-1);
+                border-color: rgb(255, 255, 255);
+                height: calc(100% - 12px);
+            }
+            height: fit-content;
+            background-color: #21263bd9;
+            padding: 10px;
+            border: solid 1px rgb(184, 184, 184);
+            & > .comttext{visibility: visible;}
+        }    
+    }
+}
+/* bincide                                   <option class="musiclist_settings_dropdown_item stts_comsindcvosh">Comment indicators visible on section hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsindcvoih">Comment indicators visible on item hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsvoih">Comment visible on item hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsvoihwi">Comment visible on item hover without indicators</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allcomsindcviz">All comment indicators visible</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allcomsviz">All comments visible</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsvizoindcp">Comment visible on indicator pressed</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsvizoindch">Comment visible on indicator hovered</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsvizoitmh">Comment visible on item hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_comsindcvoih">Comments visible on section hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allcomsviz">All comments visible</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allcomsneverviz">Comments never visible</option>
+                                </select>
+                                <div class="musiclist_settings_label">Comment indicator Visibility</div>
+                                <select class="musiclist_comentvizsettings_dropdown_cviz">
+                                    <option class="musiclist_settings_dropdown_item stts_indcvizosech">Comment indicators visible on section hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_indcvizoitmh">Comment indicators visible on item hover</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allindcviz">All comment indicators visible</option>
+                                    <option class="musiclist_settings_dropdown_item stts_allindcneverviz">Comment indicators never visible</option>
+
+                                    */
+
+
+.stts_auto:checked{}
+.stts_autoORstaggered:checked{}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cpos > .stts_left:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{
+        & > .comt{
+            left: auto;
+            right: 106%;
+            & > .pressdetector{
+                top: 6px;
+                right: 6px; left: auto;
+                border-radius: 8px 0 0 8px;
+                border-left: 2px solid rgba(255, 255, 255, 0);
+                border-right: 0px;
+                &::after{
+                    left: auto;
+                }
+                &:hover{
+                    &::after{transform: translateX(-7px);}
+                }
+                &:focus{
+                    border-color: rgb(255, 255, 255);/*redefined borders need to be recolored*/
+                }
+            }
+            & > .comttext{
+                left:auto;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                }
+            }
+        }
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cpos > .stts_right:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{
+        & > .comt{
+            left: 215px;
+            & > .pressdetector{
+                top: 6px;
+                right: auto; left: -14px;
+                border-radius: 0 8px 8px 0;
+                border-left: 0px;
+                border-right: 2px solid rgba(255, 255, 255, 0);
+                transform-origin: right;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px
+                }
+                &:hover{
+                    &::after{transform: translateX(7px);}
+                }
+                &:focus{
+                    border-color: rgb(255, 255, 255);/*redefined borders need to be recolored*/
+                }
+            }
+            & > .comttext{
+                left:6px;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border: solid 1px rgb(184, 184, 184);
+                }
+            }
+        }
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cpos > .stts_top:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{
+        & > .comt{
+            top: -60px;
+            left: 0;
+            width: 92%;
+            max-width: none;
+            & > .pressdetector{
+                top: 55px;
+                right: auto; left: 200px;
+                border-radius: 8px 0 0 8px;
+                border-left: 2px solid rgba(255, 255, 255, 0);
+                border-right: 0px;
+                transform-origin: center;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px;
+                    transform: rotate(-90deg);
+                }
+                &:hover{
+                    &::after{transform: translateY(-4px) rotate(-90deg);}
+                }
+                &:focus{
+                    top: 6px;
+                    right: 6px; left: auto;
+                    border-color: rgb(255, 255, 255);
+                    height: calc(100% - 12px);
+                }
+            }
+            & > .comttext{
+                width: 96%;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                    top: 6px;
+                    right: 6px; left: auto;
+                }
+            }
+        }
+    }
+}
+.musiclist:has(.musiclist_settings > .musiclist_settings_dropdowns > .musiclist_comentvizsettings_dropdown_cpos > .stts_bottom:checked){
+    & > .musiclist_section > .musiclist_content > .musiclist_item_cont > .c3il, .c3im, .c3ir, .c2il, .c2ir, .c1lnr{
+        & > .comt{
+            top: 55px;
+            left: 0;
+            width: 92%;
+            max-width: none;
+            & > .pressdetector{
+                top: -48px;
+                right: auto; left: 200px;
+                border-radius: 8px 0 0 8px;
+                border-left: 2px solid rgba(255, 255, 255, 0);
+                border-right: 0px;
+                transform-origin: center;
+                &::after{
+                    content: ">";
+                    position: relative;
+                    left: 7px;
+                    transform: rotate(90deg);
+                }
+                &:hover{
+                    &::after{transform: translateY(4px) rotate(90deg);}
+                }
+                &:focus{
+                    top: 6px;
+                    right: 6px; left: auto;
+                    border-color: rgb(255, 255, 255);
+                    height: calc(100% - 12px);
+                }
+            }
+            & > .comttext{
+                width: 96%;
+            }
+            &:focus{
+                & > .pressdetector{
+                    border-radius: 8px 0 0 8px;
+                    border-left: 2px solid rgb(255, 255, 255);
+                    border-right: 0px;
+                    top: 6px;
+                    right: 6px; left: auto;
+                }
+            }
+        }
+    }
+}
+/*===========================================*/
+/*
+How this works: Ask me
+*/
+.playercomposite{
+    transform: translateY(-1000px);
+
+    /*Flex*/
+    /* top: 0; left: 0; */
+
+    /*rige*/
+    /* any tlbr combo*/
+
+    position: fixed;
+    overflow: visible;
+    z-index: 6;
+
+    transition-duration: 0.3s;
+}
+
+.posadjuster{
+    /*rige*/
+    display: none;
+
+    transform: translateY(995px) translateX(-25px);
+
+    resize: both;
+    overflow: hidden;
+    pointer-events: none;
+
+    position: relative;
+    min-width: 50px;
+    max-width: 100vw;
+    max-height: 100vh;
+    z-index: 3;
+
+    visibility: hidden;
+}
+
+.playerconglomerate{
+    /*flex*/
+    /* bottom: 30px; right: 0; */
+
+    /*rige*/
+
+    background-color: #7e7e7e44;
+
+    transform-origin: right;
+    transform: translateY(1000px);
+    min-height: 100px;/*100,100*/
+    min-width: 100px;
+    position: relative;
+    float: right;
+    
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+
+    resize: both;
+    overflow: hidden;
+
+    &:hover{
+        & > .ar_toggle{visibility: visible;}
+        & > .rige_toggle{visibility: visible;}
+        & > .position_togglecont{visibility: visible;}
+        & > .modpos_toggle{visibility: visible;}
+        & > .posmode_toggle{visibility: visible;}
+    }
+}
+.media_player{
+    height:100%;
+    aspect-ratio: 1/1;
+
+    pointer-events: auto;
+}
+.ar_toggle{
+    appearance: none;
+    position: absolute;
+    top: 0; right: 0; padding: 2px;
+    width: 24px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "<>";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "><";
+        }
+        & ~ .media_player{
+            aspect-ratio: 16/9;
+        }
+    }
+}
+.rige_toggle{
+    appearance: none;
+    position: absolute;
+    top: 0; left: 0; padding: 2px;
+    width: 20px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "( )";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "[ ]";
+        }
+    }
+}
+.playerconglomerate:has(> .rige_toggle:checked){
+    width: max-content !important;
+}
+.modpos_toggle{
+    appearance: none;
+    position: absolute;
+    bottom: 10px; right: 10px; padding: 2px;
+    width: 20px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "X";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "M";
+        }
+        & ~ #PlayerflexCursorBlocker{
+            display: block;
+        }
+    }
+}
+.posadjuster:has(+ .playerconglomerate > .modpos_toggle:checked){
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-image: radial-gradient(at 100% 100%, white 0%, rgba(255, 255, 255, 0) 30%) 2;
+    pointer-events: auto;
+    visibility: visible;
+}
+.playerconglomerate:has(.modpos_toggle:checked){
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.367);
+}
+
+.position_togglecont{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 24px; height: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &:hover{
+        opacity: 1;
+    }
+}
+.positional_toggle{
+    appearance: none;
+    box-sizing: border-box;
+    width: 10px; height: 10px; margin: 1px;
+    background-color: rgba(162, 162, 162, 0.8);
+    z-index: 2;
+
+    &:checked{background-color: rgb(138, 206, 206);}
+
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .postl:checked){
+    top: 0; left: 0;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .postr:checked){
+    top: 0; right: 0;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .posbl:checked){
+    bottom: 0; left: 0; top: auto;
+}
+.playercomposite:has(.playerconglomerate > .position_togglecont > .posbr:checked){
+    bottom: 0; right: 0; top: auto;
+}
+
+#PlayerflexCursorBlocker{
+    display: none;
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: white;
+    opacity: 0.3;
+}
+.posmode_toggle{
+    appearance: none;
+    position: absolute;
+    bottom: 30px; left: 2px; padding: 2px;
+    width: 30px; height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+
+    opacity: 0.5;
+    visibility: hidden;
+    &::before{
+        font-family: Tahoma;
+        color: white;
+        content: "Rige";
+    }
+    &:hover{
+        opacity: 1;
+    }
+    &:checked{
+        &::before{
+            content: "Flex";
+        }
+    }
+}
+.playercomposite:has(.playerconglomerate > .posmode_toggle:checked){
+    background-color: #A2678A;
+    top: 0 !important; bottom: 0 !important; right: auto !important; left: auto !important; /*cancels out higher specificity position_toggle*/
+}
+.posadjuster:has(+ .playerconglomerate > .posmode_toggle:checked){
+    display: block;
+}
+.playerconglomerate:has(.posmode_toggle:checked){
+    bottom: 30px; right: 0;
+}
+ /*To do: make hide player option, hide scale option, compact all toggles css, in flexmove mode chnage opacity to indicate*/
+
+#playerviztoggle{
+    appearance: none;
+    box-sizing: content-box;
+    position: fixed;
+    bottom: 40px; left:10px;
+    width: 20px; height: 45px;
+    border-radius: 5px;
+    z-index: 10;
+
+    background-color: #4694ba;
+    
+    transform: translateX(-24px);
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    &:checked{
+        background-color: #36637a;
+        & + .playercomposite{
+            /* height: 0; */
+            opacity: 0;
+            transform: translateX(-110vw) translateY(-1000px);
+        }
+    }
+    &:hover{
+        transform: translate(-20px);
+        opacity: 1;
+    }
+}
