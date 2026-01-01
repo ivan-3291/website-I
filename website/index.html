@@ -1,90 +1,181 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>c1wb</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="stylesheet-1.css"/>
+        <title>Hotel Housekeeping System</title>
+        <link rel="stylesheet" href="style-3.css"/>
+        <script src="script-1.js"></script>
     </head>
     <body>
-        <div class="header">Hiiii </div>
-        <!-- <label id="navbartoggle_label">Toggle navbar:</label><input type="checkbox" role="switch" id="navbartoggle"/> -->
-        <!-- <div><input type="checkbox" id="navbartoggle2"><span id="nvbrmark">text</span></div> -->
-        <input type="checkbox" id="navbartoggle2"/>
-        <div class="navbar">
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Mains</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="#" class="dropdown_itemsLink"><div class="dropdown_items">Homepage</div></a>
-                    <a href="#" class="dropdown_itemsLink"><div class="dropdown_items">Music Introduction</div></a>
-                    <a href="#" class="dropdown_itemsLink"><div class="dropdown_items">Music Map</div></a>
-                </div>
-            </div>
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Music General</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="Music_General-1.html" class="dropdown_itemsLink"><div class="dropdown_items">Electronic n Mainstream</div></a>
-                    <a href="Music_General-2.html" class="dropdown_itemsLink"><div class="dropdown_items">Emotional</div></a>
-                    <a href="Music_General-3.html" class="dropdown_itemsLink"><div class="dropdown_items">Bizzare and Whimsical</div></a>
-                    <a href="Music_General-4.html" class="dropdown_itemsLink"><div class="dropdown_items">My Top Faves</div></a>
-                </div>
-            </div>
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Functional Music</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="Music_withFunction-1.html" class="dropdown_itemsLink"><div class="dropdown_items">Cafe Music</div></a>
-                    <a href="Music_withFunction-2.html" class="dropdown_itemsLink"><div class="dropdown_items">Travel Music</div></a>
-                    <a href="Music_withFunction-3.html" class="dropdown_itemsLink"><div class="dropdown_items">Owrkout and motivation</div></a>
-                </div>
-            </div>
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Jmusic/traditional</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="Music-Japan.html" class="dropdown_itemsLink"><div class="dropdown_items">Anison n more</div></a>
-                    <a href="Traditional.html" class="dropdown_itemsLink"><div class="dropdown_items">Traditional</div></a>
-                </div>
-            </div>
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Misc</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="Music_Instruments.html" class="dropdown_itemsLink"><div class="dropdown_items">Instruments</div></a>
-                    <a href="Music_Features.html" class="dropdown_itemsLink"><div class="dropdown_items">Features</div></a>
-                </div>
-            </div>
-            <div class="navbar_item">
-                <a href="#" class="navbar_item_aE"><div class="navbar_item_content"><div class="text_deco"></div>Individual/group</div></a>    
-                <div class="navbar_item_dropdown">
-                    <a href="Tetr.io sountrack.html" class="dropdown_itemsLink"><div class="dropdown_items">Tetr.io soundtrack</div></a>
-                </div>
-            </div>
+        <div id="navbar">
+            <div class="navbar_item" onclick="toPage(Pages.MainPg, this)">Main page</div>
+            <div class="navbar_item" onclick="toPage(Pages.RoomPg, this)">Rooms</div>
+            <div class="navbar_item" onclick="toPage(Pages.InvtPg, this)">Inventory</div>
+            <div class="navbar_item" onclick="toPage(Pages.EmplPg, this)">Employees</div>
+            <div class="navbar_item" onclick="toPage(Pages.AcCfPg, this)">Actions Config</div>
+            <div class="navbar_item" onclick="toPage(Pages.IvRsPg, this)">Inventory Ressuply</div>
+            <div class="navbar_item" onclick="toPage(Pages.EmpDPg, this)">Employee Data</div>
+            <div class="navbar_item" onclick="toPage(Pages.RmDtPg, this)">Room Type Data</div>
         </div>
-        
-        <div class="page_content_text">
-            <br/><br/>
-            <div class="heading1">Introduction</div>
-            <br/><br/>
-            <div class="heading2">About this website</div>
-            <div class="prgraph">
-                This website is a personal blog about me, my favourite books, music and content recommendations. These recommendations are not the most mainstream of content, so I hope that you can find some internet "gems" here. Such as obscure web series, really engaging and niche yt gaming series, a cathartic and therapeutic comedy show steeped in existentialism, a comfy enjoyment of relatable feels with a focus on daily life portrayed in silly fun, Inspiring euphoric and psychedelic experiences, and more.
-                <br/><br/>
-                If you are one that enjoys content perhaps possibly the same way I do, let me share with you these shards of wonder and beauty from the far corners and hidden corridors of the internet.
-            </div>
-            <br/><br/>
-            <div class="heading2">About Me</div>
-            <div class="prgraph">
-                I am a casual gamer, avid Minecraft since-childhood fan, niche books binger and enjoyer of cute, cuddly stuff. I love sharing and discussing about hobbies and am about as approachable as a rock. My hobbies include gaming, reading books (mostly uh fiction I guess kinda), watching yt ofc, listening to music and making food I see on the internet (which I'm really bad at).
-                <br/><br/>
-                I like solitude and anonymity, going to quiet, private and secluded cafes and long videos. I like enjoying doing stuff on airplanes, cafes and while travelling, while listening to a way-too-wide-variety(not really) of music.
-                <br/><br/>
-                I kinda like the feeling of focusing on a specific highly enjoyable task/game and zoning out to it. Where your attention is tunnel visioned onto this specific thing, and everything else fades away.
-                <br/><br/>
-                I also like to enjoy long(~30min-2hours) videos while being comfy, wrapped tightly in bedsheets eating salty peppery popcorn, while lavishing in an air-conditioned room as heavy rain and/or thunderstorm provides the perfect ambiance. Did I mention I like, really like rain?
-                <br/><br/>
-                I guess I enjoy travelling as well. Being comfy, listening to music and having meals on trains or airplanes as the world zips by. The freshness of different places and environments.
-                <br/><br/>
-                Well, that's enough of me. Here's a summary of this website. Use it well to find, hopefully your new obsession or fascination.
+        <div id="Controls">
+            <h4>Action/Task</h4>
+            <label style="font-size: 13px;">Room: </label>
+            <input type="number" id="RoomNumInp"/><br/>
+            <select id="EmplySlc">
+                <option>Random</option>
+            </select><br/>
+            <select id="taskTypeSlc" oninput="document.getElementById('customTaskInp').style.display = this.value=='Other' ? 'inline' : 'none';">
+                <option>Housekeep-checkout</option>
+                <option>Housekeep-request</option>
+                <option>Maintainence-request</option>
+                <option>Guest-request</option>
+                <option>Other</option>
+            </select><br/>
+            <input id="customTaskInp" type="text" placeholder="custom task name" style="display: none;"/>
+            <label style="font-size: 13px; vertical-align:top;">Details: </label>
+            <textarea id="detailsInp"></textarea><br/>
+            <button id="taskSubmitBtn">validate</button>
+            <div id="ControlsMessages"></div>
+        </div>
+        <div id="ActionConfmrFrcr">
+            <div id="ActionConfmr"><!--Over the screen/on the side window to confirm actions. modifications done on task done, -->
+                <div id="targetTask">For Task ID,type,[employee] <span>initiated/done</span></div><br/>
+                <label>Inventory:</label>
+                <input id="itemNameInp" type="text" placeholder="item"/>
+                <span onclick="addItemtoInvMod(document.getElementById('itemNameInp').value); document.getElementById('itemNameInp').value = '';" id="addItem">+</span>
+                <div id="inventoryMods">
+                    <div class="itemSec">
+                        <Label>Itemname</Label> : 
+                        <input onkeydown="return onlyDigitsOnInp(event)" class="itemQtyInp" required type="number" placeholder="+/-amt"/>
+                        <span class="removeItem">-</span>
+                    </div>
+                </div>
+                </br/>
+                <!--On inputting 3 or more characters, display a list of items to select below-->
+                <label>Room <span id="TargetRoom">RoomNum</span> Booking Status to:</label>
+                <select id="bkStatusToInp">
+                    <option>unavailable</option><option>available</option><option>booked</option><option>checked in</option><option>checked out</option>
+                </select>
                 <br/>
-                Navigate using the pretty pink navbar wink
+                <br/>
+                <button id="vNcActionBtn" onclick="modifyTaskActions(); toggleActionPane(false);">apply</button>
+                <span style="display: inline-block; width: 30px;"></span>
+                <button id="cancelActionBtn" onclick="toggleActionPane(false);">cancel/close</button>
+                <br/>
+                <div id="ActionMessages"></div>
             </div>
         </div>
+        <div id="ntfrShell" class="notifsNotdispld">
+            <div id="notifier"></div><!--//style="transform: translateX(320px)" -->
+            <div id="openNotifsLogsBtn" onclick="notifBarClicked()"></div>
+        </div>
+        <div id="Main page">
+            <h1>Master Task List Page</h1>
+            <div class="listSection">
+            </div>
+        </div>
+        <div id="Rooms">
+            <h1>Rooms Page</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+        </div>
+        <div id="Inventory">
+            <h1>Inventory Page</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+        </div>
+        <div id="Employees">
+            <h1>Employees Page</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+        </div>
+        <div id="ActionConfig">
+            <h1>Actions Config Page</h1>
+            <p>Used by inputting custom task name into text box that appears when task type is set to "Other"</p>
+            <div class="listSection">
+                <div></div>
+            </div>
+            <table id="CustomTaskDataTable" style="border-spacing: 0px;">
+                <tr class="listRw">
+                    <th class="listClm">Task Name</th>
+                    <th class="listClm">Task Details (on task done)</th>
+                    <th class="listClm">Remove</th>
+                </tr>
+            </table>
+            <br/>
+            <button onclick="addCustomTask()">Add Task</button>
+        </div>
+        <div id="InventoryRessuply">
+            <h1>Inventory resupply order Page</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+            <h3>Order Logs</h3>
+            <table id="OrderLogsTable" style="border-spacing: 0px;">
+                <tr class="listRw">
+                    <th class="listClm">ID</th>
+                    <th class="listClm">Date</th>
+                    <th class="listClm">List</th>
+                    <th class="listClm">Status</th>
+                </tr>
+            </table>
+            <br/>
+            <textarea id="orderList" placeholder="itemName: amount change<br/> itemName2: amount change..." style="width:200px" onkeydown="orderlisttexthandler(event)" onblur="orderlisttexthandler(event, true)"></textarea><br/>
+            <button onclick="addInvRsplyOrder()">Add Order</button>
+            <br/>
+            <p>click on [-] to confirm ressuply and update inventory</p>
+        </div>
+        <div id="EmplyDataNReg">
+            <h1>Employee Personal data and registration</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+            <table id="EmployeesPersonalDataTable" style="border-spacing: 0px;">
+                <tr class="listRw">
+                    <th class="listClm">ID</th>
+                    <th class="listClm">Name</th>
+                    <th class="listClm">Age</th>
+                    <th class="listClm">Phone number</th>
+                    <th class="listClm">Email</th>
+                </tr>
+            </table>
+            <br/>
+            <h3>Register new employee</h3>
+            <label>Name: </label>
+            <input type="text" id="newEmpName" required/><br/>
+            <label>Age: </label>
+            <input type="number" id="newEmpAge" required/><br/>
+            <label>Phone Number: </label>
+            <input type="number" id="newEmpPn" required/><br/>
+            <label>Email: </label>
+            <input type="email" id="newEmpEmail" required/><br/>
+            <button onclick="if (![document.getElementById('newEmpName').value.trim(),document.getElementById('newEmpAge').value,document.getElementById('newEmpPn').value,document.getElementById('newEmpEmail').value].includes('')) {addNewEmployee(document.getElementById('newEmpName').value,document.getElementById('newEmpAge').value,document.getElementById('newEmpPn').value,document.getElementById('newEmpEmail').value)}">submit</button>
+        </div>
+        <div id="roomData">
+            <h1>Room types</h1>
+            <div class="listSection">
+                <div></div>
+            </div>
+            <button onclick="toPage(Pages.SRDtPg, null, skipbtn = true); loadRoomTypeData('single');">Single</button><br/><br/>
+            <button onclick="toPage(Pages.SRDtPg, null, skipbtn = true); loadRoomTypeData('double');">Double</button><br/><br/>
+            <button onclick="toPage(Pages.SRDtPg, null, skipbtn = true); loadRoomTypeData('queen');">Queen</button><br/><br/>
+            <button onclick="toPage(Pages.SRDtPg, null, skipbtn = true); loadRoomTypeData('family');">Family</button><br/><br/>
+        </div>
+        <div id="roomDataSub">
+            <div class="listSection">
+                <div></div>
+            </div>
+            <br/><br/>
+            <button onclick="toPage(Pages.RmDtPg, document.getElementById('navbar').children[7]);">Back</button>
+            <p id="RoomTypeDescription"></p>
+            <table id="RoomTypeDataTable" style="border-spacing: 0px;"></table>
+            <br/>
+            <textarea id="RoomDataUpdateList" placeholder="itemName: amount change<br/> itemName2: amount change..." style="width:200px" onkeydown="updtRmDttexthandler(event)" onblur="updtRmDttexthandler(event, true)"></textarea><br/>
+            <button onclick="applyRmdtChanges()">apply changes</button>
+            <p>set item to zero to remove it</p>
+        </div>
+        <script>initializePage();</script>
     </body>
 </html>
